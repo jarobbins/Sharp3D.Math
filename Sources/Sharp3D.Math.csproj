@@ -1,16 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configurations>Debug;Release</Configurations>
-    <Platforms>AnyCPU</Platforms>
-    <ProductVersion>9.0.20404</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <Platforms>AnyCPU;x64</Platforms>
+    
     <ProjectGuid>{8F9BA4D3-D6AF-42A6-B74F-0DF6568C148B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sharp3D.Math</RootNamespace>
     <AssemblyName>Sharp3D.Math</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
     </SccProjectName>
@@ -42,13 +41,22 @@
     <TargetFrameworkProfile />
     <TargetFramework>4.5</TargetFramework>
     <PackageId>Sharp3D.Math</PackageId>
-    <PackageVersion>1.0.3.0</PackageVersion>
     <Authors>ekampf</Authors>
+    <Company>ekampf</Company>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Sharp3D.Math originally by Eran Kampf but modified by Francois Gasnier</PackageReleaseNotes>
     <Copyright>Copyright 2017 (c) Contoso Corporation. All rights reserved.</Copyright>
     <PackageTags>2D 3D Geometry Vector Matrix Transformation</PackageTags>
+    <Title>Sharp3D.Math</Title>
+    <Product>Sharp3D.Math</Product>
+    <Description>2D and 3D geometry library</Description>
+    
   </PropertyGroup>
+  
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -75,75 +83,5 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Analysis\Interfaces.cs" />
-    <Compile Include="Analysis\RombergIntegral.cs" />
-    <Compile Include="Analysis\SimpsonIntegral.cs" />
-    <Compile Include="Analysis\TrapezoidIntegral.cs" />
-    <Compile Include="Core\ComplexD.cs" />
-    <Compile Include="Core\ComplexF.cs" />
-    <Compile Include="Core\Interval.cs" />
-    <Compile Include="Core\MathException.cs" />
-    <Compile Include="Core\MathFunctions.cs" />
-    <Compile Include="Core\Matrix2D.cs" />
-    <Compile Include="Core\Matrix2F.cs" />
-    <Compile Include="Core\Matrix3D.cs" />
-    <Compile Include="Core\Matrix3F.cs" />
-    <Compile Include="Core\Matrix4D.cs" />
-    <Compile Include="Core\Matrix4F.cs" />
-    <Compile Include="Core\ParseException.cs" />
-    <Compile Include="Core\Polynomial.cs" />
-    <Compile Include="Core\QuaternionD.cs" />
-    <Compile Include="Core\QuaternionNotInvertibleException.cs" />
-    <Compile Include="Core\Transform2D.cs" />
-    <Compile Include="Core\Transform3D.cs" />
-    <Compile Include="Core\Vector2D.cs" />
-    <Compile Include="Core\Vector2F.cs" />
-    <Compile Include="Core\Vector3D.cs" />
-    <Compile Include="Core\Vector3F.cs" />
-    <Compile Include="Core\Vector4D.cs" />
-    <Compile Include="Core\Vector4F.cs" />
-    <Compile Include="Geometry2D\Arc.cs" />
-    <Compile Include="Geometry2D\Circle.cs" />
-    <Compile Include="Geometry2D\DistanceMethods.cs" />
-    <Compile Include="Geometry2D\Enums.cs" />
-    <Compile Include="Geometry2D\IntersectMethods.cs" />
-    <Compile Include="Geometry2D\OrientedBox.cs" />
-    <Compile Include="Geometry2D\Polygon.cs" />
-    <Compile Include="Geometry2D\Ray.cs" />
-    <Compile Include="Geometry2D\Rectangle.cs" />
-    <Compile Include="Geometry2D\Segment.cs" />
-    <Compile Include="Geometry2D\SegmentMethods.cs" />
-    <Compile Include="Geometry2D\Triangle.cs" />
-    <Compile Include="Geometry2D\VerticalDistance.cs" />
-    <Compile Include="Geometry3D\Polygon.cs" />
-    <Compile Include="Geometry3D\Ray.cs" />
-    <Compile Include="Geometry3D\Segment.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="NuGet.Build.Tasks.Pack" Version="4.4.0" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "$(ProjectDir)Signfile.bat" $(TargetPath)</PostBuildEvent>
-    <DelaySign>false</DelaySign>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <Target Name="PostBuildEvent" Condition=" '$(PostBuildEvent)' != '' " DependsOnTargets="$(PostBuildEventDependsOn)">
-    <Exec WorkingDirectory="$(OutDir)" Command="$(PostBuildEvent)" IgnoreExitCode="true" />
-  </Target>
+  
 </Project>
